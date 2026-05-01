@@ -29,7 +29,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: TextField(
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
@@ -47,7 +47,25 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
             ),
-            TextButton(onPressed: () {}, child: Text("Convert")),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextButton(
+                onPressed: () {},
+                style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.white),
+                  foregroundColor: WidgetStatePropertyAll(Colors.black),
+                  minimumSize: WidgetStatePropertyAll(
+                    Size(double.infinity, 50),
+                  ),
+                  shape: WidgetStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(60)),
+                    ),
+                  ),
+                ),
+                child: Text("Convert"),
+              ),
+            ),
           ],
         ),
       ),
