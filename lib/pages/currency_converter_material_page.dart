@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 
-class CurrencyConverterMaterialPage extends StatelessWidget {
+class CurrencyConverterMaterialPage extends StatefulWidget {
   const CurrencyConverterMaterialPage({super.key});
+
+  @override
+  State<CurrencyConverterMaterialPage> createState() =>
+      _CurrencyConverterMaterialPageState();
+}
+
+class _CurrencyConverterMaterialPageState
+    extends State<CurrencyConverterMaterialPage> {
+  double result = 0;
+  TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final border = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(60),
+      borderRadius: BorderRadius.circular(10),
       borderSide: BorderSide(
         color: Colors.white54,
         strokeAlign: BorderSide.strokeAlignInside,
       ),
     );
     return Scaffold(
-      appBar: AppBar(title: const Text("Currency Converter Material Page")),
+      appBar: AppBar(
+        title: const Text(
+          "Currency Converter",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black,
+      ),
       backgroundColor: Colors.black,
       body: Center(
         child: Column(
@@ -21,7 +37,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "0",
+              result.toString(),
               style: TextStyle(
                 fontSize: 45,
                 fontWeight: FontWeight.bold,
@@ -49,8 +65,12 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: TextButton(
-                onPressed: () {},
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    result = double.parse(textEditingController.text) * 122.73;
+                  });
+                },
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.white),
                   foregroundColor: WidgetStatePropertyAll(Colors.black),
@@ -59,7 +79,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   ),
                   shape: WidgetStatePropertyAll(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(60)),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                   ),
                 ),
