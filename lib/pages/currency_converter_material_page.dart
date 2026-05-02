@@ -13,6 +13,12 @@ class _CurrencyConverterMaterialPageState
   double result = 0;
   TextEditingController textEditingController = TextEditingController();
 
+  void convert() {
+    setState(() {
+      result = double.parse(textEditingController.text) * 122.73;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final border = OutlineInputBorder(
@@ -67,11 +73,7 @@ class _CurrencyConverterMaterialPageState
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    result = double.parse(textEditingController.text) * 122.73;
-                  });
-                },
+                onPressed: convert,
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.white),
                   foregroundColor: WidgetStatePropertyAll(Colors.black),
