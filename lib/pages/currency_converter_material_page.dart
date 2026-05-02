@@ -19,6 +19,12 @@ class _CurrencyConverterMaterialPageState
     });
   }
 
+  void reset() {
+    setState(() {
+      result = 0;
+    });
+  }
+
   @override
   void dispose() {
     textEditingController.dispose();
@@ -41,6 +47,7 @@ class _CurrencyConverterMaterialPageState
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black,
+        actions: [ElevatedButton(onPressed: reset, child: Icon(Icons.restore))],
       ),
       backgroundColor: Colors.black,
       body: Center(
