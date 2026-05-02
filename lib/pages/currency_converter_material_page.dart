@@ -37,7 +37,7 @@ class _CurrencyConverterMaterialPageState
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              result.toString(),
+              "BDT: $result ৳ ",
               style: TextStyle(
                 fontSize: 45,
                 fontWeight: FontWeight.bold,
@@ -47,6 +47,7 @@ class _CurrencyConverterMaterialPageState
             Container(
               padding: const EdgeInsets.all(10.0),
               child: TextField(
+                controller: textEditingController,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: "Please enter an amount in USD",
