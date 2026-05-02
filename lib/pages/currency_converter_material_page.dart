@@ -38,21 +38,22 @@ class _CurrencyConverterMaterialPageState
       ),
       backgroundColor: Colors.black,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "BDT: $result ৳ ",
-              style: TextStyle(
-                fontSize: 45,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "BDT: ${result != 0 ? result.toStringAsFixed(3) : result.toStringAsFixed(0)}৳ ",
+                style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10.0),
-              child: TextField(
+              const SizedBox(height: 10),
+              TextField(
                 controller: textEditingController,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
@@ -69,10 +70,8 @@ class _CurrencyConverterMaterialPageState
                 ),
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ElevatedButton(
+              const SizedBox(height: 10),
+              ElevatedButton(
                 onPressed: convert,
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.white),
@@ -88,8 +87,8 @@ class _CurrencyConverterMaterialPageState
                 ),
                 child: Text("Convert"),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
